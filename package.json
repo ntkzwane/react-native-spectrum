@@ -9,8 +9,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-spectrum.git",
-    "baseUrl": "https://github.com/github_account/react-native-spectrum"
+    "url": "git+https://github.com/ntkzwane/react-native-spectrum.git",
+    "baseUrl": "https://github.com/ntkzwane/react-native-spectrum"
   },
   "keywords": [
     "react-native"
@@ -23,12 +23,10 @@
   "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
   "peerDependencies": {
-    
     "react": "16.2.0",
     "react-native": "^0.52.0"
   },
   "devDependencies": {
-    
     "react": "16.2.0",
     "react-native": "^0.52.0"
   }
