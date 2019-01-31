@@ -21,7 +21,6 @@ import java.util.List;
  */
 public class RNSpectrumPackage implements ReactPackage {
 
-
     /**
      * @param reactContext react application context that can be used to create modules
      * @return list of native modules to register with the newly created catalyst instance

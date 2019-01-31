@@ -1,3 +1,5 @@
+import groovy.json.JsonSlurper
+
 buildscript {
     repositories {
         google()
@@ -14,16 +16,16 @@ buildscript {
 
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
-apply plugin: "de.mannodermaus.android-junit5"
+apply plugin: 'de.mannodermaus.android-junit5'
 
 def safeExtGet(prop, fallback) {
     rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
 }
 
-def DEFAULT_COMPILE_SDK_VERSION = 27
-def DEFAULT_BUILD_TOOLS_VERSION = "27.0.3"
+def DEFAULT_COMPILE_SDK_VERSION = 28
+def DEFAULT_BUILD_TOOLS_VERSION = "28.0.3"
 def DEFAULT_MIN_SDK_VERSION = 16
-def DEFAULT_TARGET_SDK_VERSION = 27
+def DEFAULT_TARGET_SDK_VERSION = 28
 
 android {
     compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
@@ -46,6 +48,11 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    externalNativeBuild {
+        cmake {
+            version "3.10.2"
+        }
     }
 }
 
@@ -79,7 +86,7 @@ dependencies {
 }
 
 def configureReactNativePom(def pom) {
-    def packageJson = new groovy.json.JsonSlurper().parseText(file('../package.json').text)
+    def packageJson = new JsonSlurper().parseText(file('../package.json').text)
 
     pom.project {
         name packageJson.title
@@ -141,7 +148,7 @@ afterEvaluate { project ->
     task installArchives(type: Upload) {
         configuration = configurations.archives
         repositories.mavenDeployer {
-            // Deploy to react-native-event-bridge/maven, ready to publish to npm
+            // Deploy to react-native-spectrum/maven, ready to publish to npm
             repository url: "file://${projectDir}/../android/maven"
 
             configureReactNativePom pom
