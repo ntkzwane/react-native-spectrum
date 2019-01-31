@@ -30,7 +30,7 @@
   	```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
   	```
-      compile project(':react-native-spectrum')
+    implementation project(':react-native-spectrum')
   	```
 
 
@@ -41,4 +41,3 @@ import RNSpectrum from 'react-native-spectrum';
 // TODO: What to do with the module?
 RNSpectrum;
 ```
-  
