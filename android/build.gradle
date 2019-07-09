@@ -47,11 +47,16 @@ repositories {
         // https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L30
         url "$projectDir/../node_modules/react-native/android"
     }
+    google()
+    mavenLocal()
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
-    compile 'com.facebook.react:react-native:+'
+    implementation 'com.facebook.react:react-native:+'
+    // Spectrum with support for JPEG, PNG and WebP
+    implementation 'com.facebook.spectrum:spectrum-default:1.1.0+'
 }
 
 def configureReactNativePom(def pom) {
