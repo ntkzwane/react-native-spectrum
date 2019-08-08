@@ -22,6 +22,7 @@ import static org.mockito.Mockito.verifyNoMoreInteractions;
 @MockDependentUnitTest
 class RNSpectrumModuleTest {
 
+    @SuppressWarnings("unused") // injected as mock dependency
     @Mock
     private ReactApplicationContext reactContext;
     @Mock
